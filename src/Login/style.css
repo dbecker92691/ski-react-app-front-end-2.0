@@ -1,0 +1,9 @@
+.fake-link {
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.login-register-container {
+	margin-top: 5em;
+}

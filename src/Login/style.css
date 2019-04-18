@@ -6,4 +6,18 @@
 
 .login-register-container {
 	margin-top: 5em;
+
+
+}
+
+.login-register-form {
+	border: solid 1px blue;
+	border-radius: 25px;
+	margin-left: 200px;
+	margin-right: 200px;
+
+}
+
+#usename-label {
+	
 }

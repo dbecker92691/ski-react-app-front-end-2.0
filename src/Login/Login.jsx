@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Form, FormGroup, Label, Input, FormText, Col, Container} from 'reactstrap';
+import FakeNavBar from './FakeNavBar';
 import './style.css';
 
 
@@ -64,17 +65,18 @@ export default class Login extends Component {
 	render(){
 		return(
 			<div>
+			<FakeNavBar />
 				<Container className="login-register-container">
 					<Form className="login-register-form" >
 							{ this.state.which === "login" ?
 								<Col sm="12" md={{ size: 6, offset: 3 }}>
 									<h1>{this.state.which === "login" ? "Log in here" : "Register here"} </h1>
 										<FormGroup className="login-form"  >
-											<Label for="username">Username</Label>
+											<Label id="usename-label" for="username">Username:</Label>
 											<Col>
 												<Input type="text" name="username" placeholder="Username" onChange={this.handleLoginChange} />
 											</Col>
-											<Label for="password">Password</Label>
+											<Label id="password-label" for="password">Password:</Label>
 											<Col>
 												<Input type="password" name="password" placeholder="password" onChange={this.handleLoginChange} />
 											</Col>
@@ -85,9 +87,9 @@ export default class Login extends Component {
 								<Col sm="12" md={{ size: 6, offset: 3 }}>
 								<h1>{this.state.which === "login" ? "Log in here" : "Register here"} </h1>
 									<FormGroup className="registration-form">
-										<Label for="username">Username</Label>
+										<Label for="username">Username:</Label>
 										<Input type="text" name="username" placeholder="Username" onChange={this.handleRegisterChange} />
-										<Label for="password">Password</Label>
+										<Label for="password">Password:</Label>
 										<Input type="password" name="password" placeholder="Password" onChange={this.handleRegisterChange} />
 										<Button onClick={this.handleRegistrationSubmit}> Submit </Button>
 									</FormGroup>

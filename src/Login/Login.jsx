@@ -41,6 +41,7 @@ export default class Login extends Component {
 
 	handleLoginSubmit = (e) => {
 		e.preventDefault();
+		console.log(e, "trying to log in")
 
 		this.props.handleLogin(this.state.loginForm);
 	}

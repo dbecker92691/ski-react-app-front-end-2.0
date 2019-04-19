@@ -3,6 +3,7 @@ import './App.css';
 import Login from "./Login/Login";
 import Main from "./Main/Main";
 
+
 class App extends Component {
   constructor(){
     super();
@@ -29,6 +30,7 @@ class App extends Component {
     });
 
     console.log(newLoginUser, "<--- login fetch request");
+    console.log(newLoginUser.status,"<------ fetch request status");
 
     if(newLoginUser.status === 200){
       const newUserResponse = await newLoginUser.json();
@@ -86,14 +88,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        {
-          this.state.loggedIn ?
-          <Main /> :
-          <Login handleLogin={this.handleLogin} handleRegister={this.handleRegister} />
-
+        <div className="App">
+        {this.state.loggedIn ?
+          <Main />
+          :
+          <Login handleRegister={this.handleRegister} handleLogin={this.handleLogin} />
         }
-      </div>
+        </div>
     );
   }
 }

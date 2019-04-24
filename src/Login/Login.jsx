@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Form, FormGroup, Label, Input, FormText, Col, Container} from 'reactstrap';
+import {Button, Form, FormGroup, Label, Input, Col, Container} from 'reactstrap';
 import FakeNavBar from './FakeNavBar';
 import './style.css';
 
@@ -41,7 +41,7 @@ export default class Login extends Component {
 
 	handleLoginSubmit = (e) => {
 		e.preventDefault();
-		console.log(e, "trying to log in")
+		console.log(this.state.loginForm, "Login form data")
 
 		this.props.handleLogin(this.state.loginForm);
 	}
@@ -50,6 +50,8 @@ export default class Login extends Component {
 		e.preventDefault();
 
 		this.props.handleRegister(this.state.registrationForm);
+
+		console.log("Handling Register");
 	}
 	toggle = () => {
 		if(this.state.which === "login"){

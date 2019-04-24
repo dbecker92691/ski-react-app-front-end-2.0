@@ -32,12 +32,12 @@ import "../App.css";
 		          <Collapse isOpen={!this.state.collapsed} navbar>
 		            <Nav navbar>
 		              <NavItem>
-		                <NavLink href="/map">
+		                <NavLink >
 		                	Map
 		                </NavLink>
 		              </NavItem>
 		              <NavItem>
-		                <NavLink href="/account">Logout or account or something</NavLink>
+		                <NavLink >Logout or account or something</NavLink>
 		              </NavItem>
 		            </Nav>
 		          </Collapse>

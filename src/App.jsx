@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Login from "./Login/Login";
-import Main from "./Main/Main";
+import Main from "./Main/Main"
 
 
 class App extends Component {
@@ -20,35 +20,36 @@ class App extends Component {
     console.log(formData, "<---- login form data");
     console.log(JSON.stringify(formData), "<----- stringified login form data");
 
-    const newLoginUser = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS_LOGIN}/login`, {
+    /* Error is happening at the "await" in the new login user if check*/
+    /* login error could be password not being incripted */
+
+    const newUserLogin = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS_LOGIN}/login`, {
       method: "POST",
-      credentials: "include",
+      credentails: "include",
       body: JSON.stringify(formData),
-      headers: {
+      headers:{
         "Content-Type": "application/json"
       }
     });
 
-    console.log(newLoginUser, "<--- login fetch request");
-    console.log(newLoginUser.status,"<------ fetch request status");
+    console.log(newUserLogin, "<---- login fetch request");
 
-    if(newLoginUser.status === 200){
-      const newUserResponse = await newLoginUser.json();
+    if(newUserLogin.status === 200){
+
+      const newLoginResponse = newUserLogin.json();
 
       this.setState({
-        currentUser: newUserResponse,
+        currentUser: newLoginResponse,
         loggedIn: true,
-        error: ""
-      });
-
-      console.log("successful login");
+        error:""
+      })
+      console.log("Successful login")
     }else{
       this.setState({
         error: "Invalid login credentails"
-      });
-
-      console.log(this.state.error);
+      })
     }
+
   }
 
   handleRegister = async (formData) => {
@@ -87,13 +88,13 @@ class App extends Component {
   }
 
   render() {
+    
     return (
         <div className="App">
-        {this.state.loggedIn ?
-          <Main />
-          :
-          <Login handleRegister={this.handleRegister} handleLogin={this.handleLogin} />
-        }
+          { this.state.loggedIn === true ?
+            <Main /> :
+            <Login handleLogin={this.handleLogin} handleRegister={this.handleRegister} />
+          }
         </div>
     );
   }

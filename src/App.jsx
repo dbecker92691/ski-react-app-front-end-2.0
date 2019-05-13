@@ -89,7 +89,7 @@ class App extends Component {
       <div className="App">
         {
           this.state.loggedIn ?
-          <Main /> :
+          <Main currentUser={this.state.currentUser}/> :
           <Login handleLogin={this.handleLogin} handleRegister={this.handleRegister} />
 
         }

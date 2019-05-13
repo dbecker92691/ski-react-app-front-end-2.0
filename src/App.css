@@ -31,3 +31,8 @@
     transform: rotate(360deg);
   }
 }
+
+
+.resort-post-card {
+  display: inline-block;
+}

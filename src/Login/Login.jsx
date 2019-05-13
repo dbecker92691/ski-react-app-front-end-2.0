@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Form, FormGroup, Label, Input, FormText, Col, Container} from 'reactstrap';
+import {Button, Form, FormGroup, Label, Input, Col, Container} from 'reactstrap';
 import FakeNavBar from './FakeNavBar';
 import './style.css';
 

@@ -43,13 +43,13 @@ export default class EditPost extends Component {
 
 			<div>
 		        <Button color="danger" onClick={this.toggle}>Edit this post</Button>
-		        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+		        <Modal isOpen={this.state.modal} toggle={this.toggle} >
 		          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
 		          <form onSubmit={this.editPost}>
 		          <ModalBody>
 		            
-            		Resort: <input type="text" placeholder={this.props.post.resort} name="resort" onChange={this.handleChange} />
-					Post: <input type="text" placeholder={this.props.post.body} name="body" onChange={this.handleChange}/>
+            		Resort: <input type="text" name="postResort" placeholder={this.props.post.resort} onChange={this.handleChange} />
+					Post: <input type="text" name="postBody" placeholder={this.props.post.body} onChange={this.handleChange}/>
 		            
 		          </ModalBody>
 		          <ModalFooter>

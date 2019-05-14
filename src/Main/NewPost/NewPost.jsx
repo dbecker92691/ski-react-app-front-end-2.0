@@ -26,7 +26,7 @@ export default class NewPost extends Component {
 	}
 
 	createPost = (e) => {
-		/* when create post is clicked page resets and doesn't create post */
+		/* new post doesn't show up until page is reset? */
 		console.log('creating your post')
 		e.preventDefault();
 

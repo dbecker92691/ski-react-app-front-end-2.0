@@ -20,7 +20,7 @@ export default class Main extends Component {
 		})
 	}
 	getPosts = async () => {
-		const allPosts = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS_SKI_POST}/`, {
+		const allPosts = await fetch(`${process.env.HEROKU_REACT_APP_BACKEND_ADDRESS}/`, {
 			credentials: "include"
 		})
 
@@ -47,7 +47,7 @@ export default class Main extends Component {
 	createPost = async (formData) => {
 		console.log(formData, "<--- new post form data");
 		
-		const postResponse = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS_SKI_POST}/`, {
+		const postResponse = await fetch(`${process.env.HEROKU_REACT_APP_BACKEND_ADDRESS}/`, {
 			method: 'POST',
 			credentials: 'include',
 			body: JSON.stringify(formData),
@@ -65,14 +65,18 @@ export default class Main extends Component {
 		})
 	}
 
-	editPost = async (id, formData) => {
-		console.log("Editing post " + id + " to have new text " + formData);
+	editPost = async (id, postBody, postReosort) => {
+		console.log("Editing post " + id + " to have new text " + postBody + " at resort: " +  postReosort);
 
-		const response = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS_SKI_POST}/${id}`, {
+		const response = await fetch(`${process.env.HEROKU_REACT_APP_BACKEND_ADDRESS}/${id}`, {
 
 			method: "PUT",
 			credentials: "include",
-			body: JSON.stringify({"body": formData}),
+			body: JSON.stringify({
+				"body": postBody,
+				"resort": postReosort
+
+		}),
 			headers: {
 				'Content-Type': 'application/json'
 			}
@@ -91,7 +95,7 @@ export default class Main extends Component {
 	}
 
 	deletePost = async (id) => {
-		await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS_SKI_POST}/${id}`, {
+		await fetch(`${process.env.HEROKU_REACT_APP_BACKEND_ADDRESSw}/${id}`, {
 			method: "DELETE",
 			credentials: 'include',
 			headers: {

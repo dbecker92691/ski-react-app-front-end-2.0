@@ -5,13 +5,11 @@ import '../App.css';
 
 
 
-// At some point figure out how to access "username" via "user_id"
 
 
 const PostList = (props) => {
 	const posts = props.posts.map((post, i) => {
 
-		console.log(post.user_id, "<---- mapped post")
 		return(
 			<div className="resort-post-card" key={i}>
 				<CardColumns xs="6" sm="4">

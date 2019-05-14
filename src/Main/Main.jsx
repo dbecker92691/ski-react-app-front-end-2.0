@@ -13,6 +13,12 @@ export default class Main extends Component {
 			currentUser: this.props.currentUser
 		}
 	}
+
+	toggle = () => {
+		this.setState({
+			toggle: !this.state.toggle
+		})
+	}
 	getPosts = async () => {
 		const allPosts = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS_SKI_POST}/`, {
 			credentials: "include"
@@ -96,10 +102,10 @@ export default class Main extends Component {
 	render(){
 		return(
 			<div>
-			<NavBar />
-				Ski Posts Here
-				<PostList posts={this.state.posts} editPost={this.editPost} deletePost={this.deletePost} currentUser={this.state.currentUser}/>
+				<NavBar />
 				<NewPost createPost={this.createPost} />
+				<h1>Here's what people are sayin!</h1>
+				<PostList posts={this.state.posts} editPost={this.editPost} deletePost={this.deletePost} currentUser={this.state.currentUser}/>
 			</div>
 		)
 	}

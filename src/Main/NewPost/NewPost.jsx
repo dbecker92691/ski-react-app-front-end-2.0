@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 
 
@@ -13,8 +13,16 @@ export default class NewPost extends Component {
 		this.state = {
 			resort: '',
 			body: '',
-			id: ''
+			id: '',
+			modal: false
 		}
+	}
+
+	toggle = () => {
+
+		this.setState({
+			modal: !this.state.modal
+		})
 	}
 
 	createPost = (e) => {
@@ -35,18 +43,23 @@ export default class NewPost extends Component {
     render(){
         return(
             <div>
-                <Form onSubmit={this.createPost} id="newPostForm">
-			        <FormGroup>
-			          <Label for="exampleEmail">Resort</Label>
-			          <Input type="text" name="resort" id="resortBody" placeholder="Where were you at?" onChange={this.handleChange} />
-			        </FormGroup>
-			        <FormGroup>
-			          <Label for="examplePassword">Post</Label>
-			          <Input type="text" name="body" id="postBody" placeholder="What's on your mind?" onChange={this.handleChange}/>
-			          <Button type="submit">Post your thoughts!</Button>
-			        </FormGroup>
-			    </Form>
+            	<Button color="danger" onClick={this.toggle} id="new-post-button">Post Something!</Button>
+                <Modal isOpen={this.state.modal} toggle={this.toggle} className="new-post-modal">
+                	<ModalHeader toggle={this.toggle}>New Post</ModalHeader>
+                	<form id="newPostForm" onSubmit={this.createPost}>
+                		<ModalBody>
+                			Resort: <input type='text' name="resort" placeholder="Resort" onChange={this.handleChange} />
+                			Post: <input type='text' name="body" placeholder="What's on your mind?" onChange={this.handleChange} />
+                		</ModalBody>
+                		<ModalFooter>
+                			<Button color="primary" onClick={this.toggle} type="submit">Post it!</Button>
+                			<Button color="secondary" onClick={this.toggle}>Nevermind</Button>
+                		</ModalFooter>
+                	</form>
+                </Modal>
             </div>
         )
     }
 }
+
+

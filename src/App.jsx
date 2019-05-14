@@ -16,10 +16,8 @@ class App extends Component {
   }
 
   handleLogin = async (formData) => {
-    console.log(formData, "<---- login form data");
-    console.log(JSON.stringify(formData), "<----- stringified login form data");
 
-    const newLoginUser = await fetch(`${process.env.HEROKU_REACT_APP_BACKEND_ADDRESS}/users/login`, {
+    const newLoginUser = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS_LOGIN}/login`, {
       method: "POST",
       credentials: "include",
       body: JSON.stringify(formData),
@@ -27,8 +25,6 @@ class App extends Component {
         "Content-Type": "application/json"
       }
     });
-
-    console.log(newLoginUser, "<--- login fetch request");
 
     if(newLoginUser.status === 200){
       const newUserResponse = await newLoginUser.json();
@@ -50,11 +46,7 @@ class App extends Component {
   }
 
   handleRegister = async (formData) => {
-
-    console.log(formData, "<----- register form data");
-    console.log(JSON.stringify(formData), "<----- strigified regiester form data");
-
-    const newRegisterUser = await fetch(`${process.env.HEROKU_REACT_APP_BACKEND_ADDRESS}/users/register`, {
+    const newRegisterUser = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS_LOGIN}/register`, {
       method: "POST",
       credentails: "include",
       body: JSON.stringify(formData),
@@ -62,9 +54,7 @@ class App extends Component {
         "Content-Type": "application/json"
       }
     });
-
-    console.log(newRegisterUser, "<---- register fetch request");
-
+    
     const newRegisterUserResponse = await newRegisterUser.json();
 
     if(newRegisterUser.status === 200){

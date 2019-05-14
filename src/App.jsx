@@ -19,7 +19,7 @@ class App extends Component {
     console.log(formData, "<---- login form data");
     console.log(JSON.stringify(formData), "<----- stringified login form data");
 
-    const newLoginUser = await fetch(`${process.env.HEROKU_REACT_APP_BACKEND_ADDRESS}/login`, {
+    const newLoginUser = await fetch(`${process.env.HEROKU_REACT_APP_BACKEND_ADDRESS}/api/login`, {
       method: "POST",
       credentials: "include",
       body: JSON.stringify(formData),
@@ -54,7 +54,7 @@ class App extends Component {
     console.log(formData, "<----- register form data");
     console.log(JSON.stringify(formData), "<----- strigified regiester form data");
 
-    const newRegisterUser = await fetch(`${process.env.HEROKU_REACT_APP_BACKEND_ADDRESS}/register`, {
+    const newRegisterUser = await fetch(`${process.env.HEROKU_REACT_APP_BACKEND_ADDRESS}/api/register`, {
       method: "POST",
       credentails: "include",
       body: JSON.stringify(formData),

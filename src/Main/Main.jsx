@@ -20,7 +20,7 @@ export default class Main extends Component {
 		})
 	}
 	getPosts = async () => {
-		const allPosts = await fetch(`${process.env.HEROKU_REACT_APP_BACKEND_ADDRESS}/`, {
+		const allPosts = await fetch(`${process.env.HEROKU_REACT_APP_BACKEND_ADDRESS}api/resort-posts/`, {
 			credentials: "include"
 		})
 
@@ -47,7 +47,7 @@ export default class Main extends Component {
 	createPost = async (formData) => {
 		console.log(formData, "<--- new post form data");
 		
-		const postResponse = await fetch(`${process.env.HEROKU_REACT_APP_BACKEND_ADDRESS}/`, {
+		const postResponse = await fetch(`${process.env.HEROKU_REACT_APP_BACKEND_ADDRESS}/api/resort-posts`, {
 			method: 'POST',
 			credentials: 'include',
 			body: JSON.stringify(formData),
@@ -68,7 +68,7 @@ export default class Main extends Component {
 	editPost = async (id, postBody, postReosort) => {
 		console.log("Editing post " + id + " to have new text " + postBody + " at resort: " +  postReosort);
 
-		const response = await fetch(`${process.env.HEROKU_REACT_APP_BACKEND_ADDRESS}/${id}`, {
+		const response = await fetch(`${process.env.HEROKU_REACT_APP_BACKEND_ADDRESS}api/resort-posts/${id}`, {
 
 			method: "PUT",
 			credentials: "include",
@@ -95,7 +95,7 @@ export default class Main extends Component {
 	}
 
 	deletePost = async (id) => {
-		await fetch(`${process.env.HEROKU_REACT_APP_BACKEND_ADDRESSw}/${id}`, {
+		await fetch(`${process.env.HEROKU_REACT_APP_BACKEND_ADDRESSw}/api/resort-posts/${id}`, {
 			method: "DELETE",
 			credentials: 'include',
 			headers: {

@@ -18,9 +18,6 @@ class App extends Component {
 
   handleLogin = async (formData) => {
 
-    /* Error is happening at the "await" in the new login user if check*/
-    /* login error could be password not being incripted */
-
     const newUserLogin = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS_LOGIN}/login`, {
       method: "POST",
       credentails: "include",
@@ -29,15 +26,8 @@ class App extends Component {
         "Content-Type": "application/json"
       }
     });
-
-<<<<<<< HEAD
-    console.log(newUserLogin, "<---- login fetch request");
-      if(newLoginUser.status === 200){
-        const newUserResponse = await newLoginUser.json();
-=======
-    
->>>>>>> new-branch-login-register-4-24-19
-
+      if(newUserLogin.status === 200){
+        const newLoginResponse = await newUserLogin.json();
       this.setState({
         currentUser: newLoginResponse,
         loggedIn: true,
@@ -84,7 +74,6 @@ class App extends Component {
   render() {
     
     return (
-<<<<<<< HEAD
       <div className="App">
         {
           this.state.loggedIn ?
@@ -93,9 +82,6 @@ class App extends Component {
 
         }
       </div>
-=======
-
->>>>>>> new-branch-login-register-4-24-19
     );
   }
 }

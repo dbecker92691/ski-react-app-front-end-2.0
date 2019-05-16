@@ -1,12 +1,8 @@
 import React, {Component} from 'react';
-<<<<<<< HEAD
 // import {BrowserRouter, Route} from 'react-router-dom';
-
-=======
 import NavBar from "./NavBar"
 import PostList from "../PostContainer/PostList";
 import NewPost from './NewPost/NewPost';
->>>>>>> new-branch-login-register-4-24-19
 
 
 
@@ -104,16 +100,12 @@ export default class Main extends Component {
 	}
 	render(){
 		return(
-<<<<<<< HEAD
 			<div>
 				<NavBar />
 				<NewPost createPost={this.createPost} />
 				<h1>Here's what people are sayin!</h1>
 				<PostList posts={this.state.posts} editPost={this.editPost} deletePost={this.deletePost} currentUser={this.state.currentUser}/>
 			</div>
-=======
-
->>>>>>> new-branch-login-register-4-24-19
 		)
 	}
 }

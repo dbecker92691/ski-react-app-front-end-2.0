@@ -41,8 +41,6 @@ export default class Login extends Component {
 
 	handleLoginSubmit = (e) => {
 		e.preventDefault();
-		console.log(this.state.loginForm, "Login form data")
-
 		this.props.handleLogin(this.state.loginForm);
 	}
 

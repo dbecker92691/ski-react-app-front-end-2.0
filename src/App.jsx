@@ -17,8 +17,6 @@ class App extends Component {
   }
 
   handleLogin = async (formData) => {
-    console.log(formData, "<---- login form data");
-    console.log(JSON.stringify(formData), "<----- stringified login form data");
 
     /* Error is happening at the "await" in the new login user if check*/
     /* login error could be password not being incripted */
@@ -32,11 +30,13 @@ class App extends Component {
       }
     });
 
+<<<<<<< HEAD
     console.log(newUserLogin, "<---- login fetch request");
-
-    if(newUserLogin.status === 200){
-
-      const newLoginResponse = newUserLogin.json();
+      if(newLoginUser.status === 200){
+        const newUserResponse = await newLoginUser.json();
+=======
+    
+>>>>>>> new-branch-login-register-4-24-19
 
       this.setState({
         currentUser: newLoginResponse,
@@ -53,10 +53,6 @@ class App extends Component {
   }
 
   handleRegister = async (formData) => {
-
-    console.log(formData, "<----- register form data");
-    console.log(JSON.stringify(formData), "<----- strigified regiester form data");
-
     const newRegisterUser = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS_LOGIN}/register`, {
       method: "POST",
       credentails: "include",
@@ -65,9 +61,7 @@ class App extends Component {
         "Content-Type": "application/json"
       }
     });
-
-    console.log(newRegisterUser, "<---- register fetch request");
-
+    
     const newRegisterUserResponse = await newRegisterUser.json();
 
     if(newRegisterUser.status === 200){
@@ -90,12 +84,18 @@ class App extends Component {
   render() {
     
     return (
-        <div className="App">
-          { this.state.loggedIn === true ?
-            <Main /> :
-            <Login handleLogin={this.handleLogin} handleRegister={this.handleRegister} />
-          }
-        </div>
+<<<<<<< HEAD
+      <div className="App">
+        {
+          this.state.loggedIn ?
+          <Main currentUser={this.state.currentUser}/> :
+          <Login handleLogin={this.handleLogin} handleRegister={this.handleRegister} />
+
+        }
+      </div>
+=======
+
+>>>>>>> new-branch-login-register-4-24-19
     );
   }
 }
